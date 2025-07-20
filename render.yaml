@@ -2,7 +2,7 @@ services:
   - type: worker
     name: lovetubebot
     runtime: python
-    repo: https://github.com/khoja3teh/lovetubebot
+    repo: https://github.com/khoja3teha/lovetubebot
     branch: main
     envVars:
       - key: BOT_TOKEN
