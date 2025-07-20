@@ -1,0 +1,10 @@
+services:
+  - type: worker
+    name: lovetubebot
+    runtime: python
+    repo: https://github.com/khoja3teh/lovetubebot
+    branch: main
+    envVars:
+      - key: BOT_TOKEN
+        value: 7834161081:AAGQlFUXT_TXpyDwxIzbYkyvoQNw9x1vyRI
+    startCommand: python main.py
