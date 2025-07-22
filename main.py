@@ -1,41 +1,24 @@
 import os
 from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
-import yt_dlp
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = os.getenv("8013306076:AAFy5_WYSfpfH7RsZcdaFti3-dcXg5z09bw")  # یا جایگزین کن با: TOKEN = "توکن_بات_تو"
+# دریافت توکن از Environment Variable
+TOKEN = os.getenv("8013306076:AAFy5_WYSfpfH7RsZcdaFti3-dcXg5z09bw")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("سلام! لینک یوتیوب رو بفرست تا دانلود کنم.")
-
-async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    url = update.message.text
-    await update.message.reply_text("در حال دانلود...")
-
-    try:
-        ydl_opts = {
-            'format': 'bestvideo+bestaudio/best',
-            'outtmpl': 'downloaded.%(ext)s',
-        }
-
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=True)
-            filename = ydl.prepare_filename(info)
-
-        with open(filename, 'rb') as f:
-            await update.message.reply_video(f, caption="دانلود کامل شد 🎉")
-
-        os.remove(filename)
-
-    except Exception as e:
-        await update.message.reply_text(f"خطا در دانلود ویدیو: {e}")
+    await update.message.reply_text("سلام! من روشنم 😊")
 
 def main():
+    # بررسی اینکه توکن درست گرفته شده یا نه
+    if not TOKEN:
+        print("❌ توکن پیدا نشد! لطفاً در بخش Environment Variables توکن را با کلید TOKEN تنظیم کن.")
+        return
+
     app = ApplicationBuilder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
+    print("✅ ربات اجرا شد...")
     app.run_polling()
 
 if __name__ == '__main__':
