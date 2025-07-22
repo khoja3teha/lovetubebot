@@ -6,5 +6,5 @@ services:
     branch: main
     envVars:
       - key: BOT_TOKEN
-        value: 7834161081:AAGQlFUXT_TXpyDwxIzbYkyvoQNw9x1vyRI
+        value: 8013306076:AAFy5_WYSfpfH7RsZcdaFti3-dcXg5z09bw
     startCommand: python main.py
