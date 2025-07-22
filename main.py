@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 import yt_dlp
 
-TOKEN = os.getenv("7834161081:AAGQlFUXT_TXpyDwxIzbYkyvoQNw9x1vyRI")  # یا جایگزین کن با: TOKEN = "توکن_بات_تو"
+TOKEN = os.getenv("8013306076:AAFy5_WYSfpfH7RsZcdaFti3-dcXg5z09bw")  # یا جایگزین کن با: TOKEN = "توکن_بات_تو"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("سلام! لینک یوتیوب رو بفرست تا دانلود کنم.")
