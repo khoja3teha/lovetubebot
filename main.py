@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # دریافت توکن از Environment Variable
-TOKEN = os.getenv("8013306076:AAFy5_WYSfpfH7RsZcdaFti3-dcXg5z09bw")
+TOKEN = os.getenv("TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("سلام! من روشنم 😊")
